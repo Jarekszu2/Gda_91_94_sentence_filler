@@ -16,16 +16,16 @@ public class SentenceFillerController {
     @GetMapping("/fill")
     public String fill(@RequestParam(name = "sentence", required = false) String sentence) {
         if (sentence != null) {
-            // Todo: zastąp wszystkie $$$ słowem j25
+            // Todo: zastąp wszystkie !!! słowem j25
             while (sentence.contains("!!!")) {
 
                 sentence = sentence.replaceFirst("!!!", getRandomNumber());
             }
+            // Todo: zastąp wszystkie @@@ liczbą 7
             while (sentence.contains("@@@")) {
 
                 sentence = sentence.replaceFirst("@@@", getRandomWord());
             }
-            // Todo: zastąp wszystkie ### liczbą 7
             return sentence; /*sentence PO ZAMIANIE*/
         }
         return "Proszę o podanie zdania do wypełnienia";
